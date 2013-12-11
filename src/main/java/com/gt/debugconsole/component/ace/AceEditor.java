@@ -14,28 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gt.debugconsole.module;
+package com.gt.debugconsole.component.ace;
 
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.html.WebPage;
-
-import com.gt.debugconsole.resources.ApplicationCssResourceReference;
+import org.apache.wicket.markup.html.form.FormComponent;
+import org.apache.wicket.model.IModel;
 
 /**
  * 
  * @author Gábor Horváth
  */
-public class AbstractPage extends WebPage {
+public class AceEditor extends FormComponent<String> {
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void renderHead(final IHeaderResponse response) {
+	public AceEditor(final String id) {
+		super(id);
+	}
 
-		super.renderHead(response);
-
-		response.render(CssHeaderItem.forReference(ApplicationCssResourceReference.get()));
+	public AceEditor(final String id, final IModel<String> model) {
+		super(id, model);
 	}
 
 }

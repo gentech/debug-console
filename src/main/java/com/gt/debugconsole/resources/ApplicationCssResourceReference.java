@@ -14,28 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gt.debugconsole.module;
+package com.gt.debugconsole.resources;
 
-import org.apache.wicket.markup.head.CssHeaderItem;
-import org.apache.wicket.markup.head.IHeaderResponse;
-import org.apache.wicket.markup.html.WebPage;
-
-import com.gt.debugconsole.resources.ApplicationCssResourceReference;
+import org.apache.wicket.request.resource.CssResourceReference;
 
 /**
  * 
  * @author Gábor Horváth
  */
-public class AbstractPage extends WebPage {
+public class ApplicationCssResourceReference extends CssResourceReference {
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public void renderHead(final IHeaderResponse response) {
+	private static final ApplicationCssResourceReference INSTANCE = new ApplicationCssResourceReference();
 
-		super.renderHead(response);
+	public static ApplicationCssResourceReference get() {
+		return INSTANCE;
+	}
 
-		response.render(CssHeaderItem.forReference(ApplicationCssResourceReference.get()));
+	protected ApplicationCssResourceReference() {
+		super(ApplicationCssResourceReference.class, "application.css");
 	}
 
 }
