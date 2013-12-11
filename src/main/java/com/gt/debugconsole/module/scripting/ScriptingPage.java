@@ -14,23 +14,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.gt.debugconsole;
+package com.gt.debugconsole.module.scripting;
 
-import org.apache.wicket.Application;
-import org.apache.wicket.protocol.http.WebApplication;
-
-import com.gt.debugconsole.module.Module;
+import com.gt.debugconsole.module.ModulePage;
 
 /**
  * 
  * @author Gábor Horváth
  */
-public abstract class ConsoleApplication extends WebApplication {
+public class ScriptingPage extends ModulePage {
 
-	public static ConsoleApplication get() {
-		return (ConsoleApplication) Application.get();
-	}
-
-	public abstract void registerModule(Module module);
+	private static final long serialVersionUID = 1L;
 
 }
